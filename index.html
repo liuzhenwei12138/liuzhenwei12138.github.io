@@ -1,1 +1,77 @@
-我叫刘振伟 这是我的主页
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#da{
+				width:300px
+				;
+				height: 300px;
+			}
+			.AA{
+				width: 300px;
+				height: 250px;
+				display: none;
+				
+			}
+			.BB{
+				width: 300px;
+				height: 250px;
+				display: block;
+				background: #0000FF;
+				
+			}
+			ul{
+				width: 300px;
+				height: 50px;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			li{
+				display: inline-block;
+				width:32% ;
+				text-align: center;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="da">
+			<ul ><li>1</li><li>2</li><li>3</li></ul>
+			<div class="BB">11</div>
+			<div class="AA">22</div>
+			<div class="AA">33</div>
+		</div>
+	</body>
+	<script >
+		var oDiv=document.getElementById("da")
+		var aDiv=oDiv.getElementsByTagName("div")
+		var aLi=document.getElementsByTagName("li")
+		console.log(aLi.length)
+		for(var a=0;a<aLi.length;a++){
+			(
+			function(){
+			var p=a
+			aLi[a].onclick=function(){
+				console.log(p)
+				
+				console.log(a)
+				for(var b=0;b<aDiv.length;b++){
+					aDiv[b].className="AA"
+					aLi[b].style.background=""
+				}
+				this.style.background="red"
+				aDiv[p].className="BB"
+				
+			}
+			}
+			)()
+			
+		}
+		
+	</script>
+</html>
